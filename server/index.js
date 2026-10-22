@@ -77,7 +77,7 @@ app.get("/api/products", (req, res) => {
     db.query(sql, (err, result) => {  // results -> result로 변경
         if(err){
             console.log("상품 조회 오류!! ", err);
-            res.send("상품 조회 중 오류 발생!!");
+            res.status(500).json({ message: "상품 조회 중 오류 발생!!" });
             return;
         }
         // res.json(results); //json 형태로 응답(전체 정보 출력)
